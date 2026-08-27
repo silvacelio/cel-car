@@ -26,6 +26,7 @@ import { SignaturePad } from '@/components/SignaturePad'
 import { CurrencyInput } from '@/components/CurrencyInput'
 import { LogoUploader } from '@/components/LogoUploader'
 import { PhotoUploader } from '@/components/PhotoUploader'
+import { ChatWidget } from '@/components/ChatWidget'
 import { CAR_PARTS, CAR_PARTS_BY_ID, TIPOS_SERVICO, type TipoServico } from '@/lib/car-parts'
 import { PAINT_COLORS, PAINT_COLORS_BY_ID } from '@/lib/colors'
 import { COMPANY, formatBRL, formatDate } from '@/lib/company'
@@ -1245,6 +1246,9 @@ export default function Home() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Chat Widget — Agente Virtual Cel-Car */}
+      <ChatWidget />
 
       {/* History sheet */}
       <Sheet open={historyOpen} onOpenChange={setHistoryOpen}>
