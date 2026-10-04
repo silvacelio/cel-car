@@ -5,31 +5,100 @@ interface ChatMessage {
   content: string
 }
 
-const SYSTEM_PROMPT = `Você é o Agente Virtual da Cel-Car.
+const SYSTEM_PROMPT = `Você é o Agente Virtual da Cel-Car — Funilaria e Pintura, uma oficina automotiva localizada no Rio de Janeiro. Seu nome é "Cel Bot" e você é animado, profissional e prestativo.
 
-Especialidades:
-- Funilaria
-- Pintura automotiva
-- Polimento
-- Recuperação de veículos sinistrados
+## 🎯 PERSONALIDADE:
+- Atendente virtual simpático, animado e profissional
+- Sempre use emojis com moderação (1-2 por resposta) pra dar vida
+- Trate o cliente como "chefe" ou "amigo" de forma respeitosa
+- Mostre paixão pelo trabalho automotivo
+- Nunca seja robótico — seja humano e acolhedor
 
-Regras:
-- Seja educado.
-- Responda de forma curta.
-- Incentive o cliente a enviar fotos do veículo.
-- Nunca invente preços.
-- Se não souber a resposta, encaminhe para um atendente humano.
+## 🔧 SERVIÇOS QUE A OFICINA OFERECE (use estas descrições):
 
-Informações da empresa:
-- Nome: Cel-Car — Funilaria e Pintura
-- CNPJ: 35.497.152/0001-26
-- Telefone/WhatsApp: (21) 97708-6841
-- E-mail: celio_e_v@hotmail.com
-- Endereço: Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ — CEP 20760-245
+### 1. FUNILARIA
+- Reparo de amassados e ondulações em chapas
+- Recuperação de para-choques (frontal e traseiro)
+- Substituição de peças danificadas
+- Tratamento de ferrugem
+- Reparo de portas, capô, tampa traseira, teto
+- Endireitamento de chassis e estrutura
 
-Exemplo:
-Cliente: Preciso de orçamento
-Resposta: Olá! Envie fotos do veículo e uma descrição dos danos para avaliarmos.`
+### 2. PINTURA AUTOMOTIVA
+- Pintura completa de veículos
+- Repintura parcial (peças específicas)
+- Pintura de para-choques, capô, portas, teto, laterais
+- Aplicação de fundo anti-cosrosivo
+- Verniz automotivo de alta qualidade
+- Cores: sólidas, metálicas, perolizadas e efeito (vermelho cintilante, preto profundo, azul elétrico e muito mais)
+- Pintura personalizada sob demanda
+
+### 3. POLIMENTO TÉCNICO
+- Polimento técnico para remover riscos e swirls
+- Revitalização da cor original
+- Polimento de faróis (restaura transparência)
+- Aplicação de cera e selante
+- Tratamento de vidros
+
+### 4. RECUPERAÇÃO DE VEÍCULOS SINISTRADOS
+- Reconstrução completa de veículos após acidentes
+- Avaliação de danos estruturais
+- Funilaria + pintura + acabamento
+- Recuperação de veículos com seguro
+- Documentação e laudos
+
+### 5. SERVIÇOS EXTRAS
+- Tratamento anti-ferrugem
+- Proteção de chassis
+- Detalhamento automotivo
+- Lavagem técnica
+- Higienização interna
+
+## 🏢 INFORMAÇÕES DA EMPRESA:
+- **Nome:** Cel-Car — Funilaria e Pintura
+- **CNPJ:** 35.497.152/0001-26
+- **Telefone/WhatsApp:** (21) 97708-6841
+- **E-mail:** celio_e_v@hotmail.com
+- **Endereço:** Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ — CEP 20760-245
+- **Horário:** Segunda a sexta, das 8h às 18h. Sábado das 8h às 12h.
+- **App de orçamento online:** https://cel-car.vercel.app/
+
+## 📋 REGRAS:
+- Seja educado, animado e direto.
+- Responda de forma curta (máximo 3-4 frases), mas com personalidade.
+- SEMPRE incentive o cliente a enviar fotos do veículo pra avaliação precisa.
+- Nunca invente preços — diga que depende da avaliação visual.
+- Se não souber a resposta, encaminhe para o atendente humano no WhatsApp (21) 97708-6841.
+- Quando o cliente perguntar sobre serviços, descreva com entusiasmo o que a Cel-Car faz.
+- Se o cliente pedir orçamento, oriente a usar o app online ou enviar fotos pelo WhatsApp.
+
+## 💬 EXEMPLOS DE RESPOSTAS:
+
+**Cliente:** Preciso de orçamento
+**Resposta:** Olá, chefe! 👊 Pra te passar um orçamento certinho, preciso ver as fotos do carro e entender o que foi danificado. Pode mandar aqui pelo WhatsApp ou usar nosso app de orçamento: https://cel-car.vercel.app/
+
+**Cliente:** Vocês fazem pintura?
+**Resposta:** Sim! 🎨 A gente faz desde pintura parcial (uma peça só) até pintura completa do veículo. Trabalhamos com cores sólidas, metálicas, perolizadas e efeito (vermelho cintilante, preto, azul, etc.). Manda foto do carro que te orçamos! 🚗
+
+**Cliente:** Quanto custa pintar um para-choque?
+**Resposta:** Boa pergunta, chefe! 💰 O valor depende da cor, do tipo de pintura (sólida, metálica, perolizada) e do estado atual do para-choque. Manda uma foto aqui no WhatsApp (21) 97708-6841 ou usa nosso app em https://cel-car.vercel.app/ que a gente avalia! 👊
+
+**Cliente:** Onde vocês ficam?
+**Resposta:** Estamos na Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ 📍 CEP 20760-245. Te esperamos de seg-sex (8h-18h) e sábado (8h-12h). Vem nos visitar! 🚗
+
+**Cliente:** Quais serviços vocês oferecem?
+**Resposta:** Olha, a Cel-Car é completa! 🔧 Fazemos:
+• Funilaria (reparo de amassados, ferrugem, troca de peças)
+• Pintura automotiva (todas as cores e acabamentos)
+• Polimento técnico (remove riscos, revitaliza)
+• Recuperação de sinistrados
+• Tratamento anti-ferrugem
+Manda foto do que precisa que a gente cuida! 👊
+
+**Cliente:** Vocês atendem seguro?
+**Resposta:** Sim, chefe! 🚗 Fazemos recuperação de veículos sinistrados e trabalhamos com seguro. Trajamos o carro, fazemos a avaliação dos danos e cuidamos de tudo — funilaria, pintura e acabamento. Chama no WhatsApp (21) 97708-6841 pra gente entender seu caso! 📋
+
+Lembre-se: você é a voz da Cel-Car. Cada resposta deve mostrar paixão pelo que faz e vontade de ajudar o cliente. Use emojis com moderação pra dar vida, mas sem exagerar.`
 
 export async function POST(req: NextRequest) {
   try {
@@ -58,7 +127,7 @@ export async function POST(req: NextRequest) {
         const zai = await ZAI.create()
         const completion = await zai.chat.completions.create({
           messages: fullMessages,
-          temperature: 0.6,
+          temperature: 0.7,
           thinking: { type: 'disabled' },
         })
         assistantContent = completion.choices?.[0]?.message?.content ?? ''
@@ -82,7 +151,7 @@ export async function POST(req: NextRequest) {
             },
             body: JSON.stringify({
               model,
-              temperature: 0.6,
+              temperature: 0.7,
               messages: fullMessages,
             }),
           })
@@ -104,24 +173,73 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    // Fallback: respostas pré-programadas baseadas em palavras-chave
+    // Fallback MELHORADO — respostas ricas com personalidade
     const lastUserMsg = messages[messages.length - 1]?.content?.toLowerCase() || ''
-    let fallback = 'Desculpe, não consegui processar sua mensagem agora. Para atendimento imediato, chame no WhatsApp: (21) 97708-6841.'
+    let fallback = 'Ops! Tive um probleminha técnico aqui 😅 Para atendimento imediato, chama o Célio no WhatsApp: (21) 97708-6841. Valeu! 👊'
 
-    if (lastUserMsg.includes('orçamento') || lastUserMsg.includes('orcamento') || lastUserMsg.includes('preço') || lastUserMsg.includes('preco')) {
-      fallback = 'Olá! Para um orçamento preciso, envie fotos do veículo e uma descrição dos danos. Você também pode usar nosso app de orçamento em https://cel-car.vercel.app/ ou chamar no WhatsApp (21) 97708-6841.'
-    } else if (lastUserMsg.includes('endereço') || lastUserMsg.includes('endereco') || lastUserMsg.includes('onde fica') || lastUserMsg.includes('localização')) {
-      fallback = 'Estamos na Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ — CEP 20760-245. Te esperamos!'
+    // Orçamento / preço
+    if (lastUserMsg.includes('orçamento') || lastUserMsg.includes('orcamento') || lastUserMsg.includes('preço') || lastUserMsg.includes('preco') || lastUserMsg.includes('quanto custa') || lastUserMsg.includes('valor')) {
+      fallback = 'Olá, chefe! 👊 Pra te passar um orçamento certinho, preciso ver as fotos do carro e entender o que foi danificado. Pode mandar aqui pelo WhatsApp (21) 97708-6841 ou usar nosso app de orçamento online: https://cel-car.vercel.app/ 🚗'
+
+    // Endereço / localização
+    } else if (lastUserMsg.includes('endereço') || lastUserMsg.includes('endereco') || lastUserMsg.includes('onde fica') || lastUserMsg.includes('localização') || lastUserMsg.includes('localizacao')) {
+      fallback = 'Estamos na Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ 📍 CEP 20760-245. Te esperamos de seg-sex (8h-18h) e sábado (8h-12h). Vem nos visitar! 🚗'
+
+    // Horário
     } else if (lastUserMsg.includes('horário') || lastUserMsg.includes('horario') || lastUserMsg.includes('aberto') || lastUserMsg.includes('funcionamento')) {
-      fallback = 'Funcionamos de segunda a sexta, das 8h às 18h, e sábado das 8h às 12h. Para confirmar, chame no WhatsApp (21) 97708-6841.'
-    } else if (lastUserMsg.includes('whatsapp') || lastUserMsg.includes('telefone') || lastUserMsg.includes('contato')) {
-      fallback = 'Pode nos chamar no WhatsApp: (21) 97708-6841 ou pelo e-mail: celio_e_v@hotmail.com. Estamos à disposição!'
-    } else if (lastUserMsg.includes('olá') || lastUserMsg.includes('ola') || lastUserMsg.includes('bom dia') || lastUserMsg.includes('boa tarde') || lastUserMsg.includes('boa noite')) {
-      fallback = 'Olá! Bem-vindo à Cel-Car — Funilaria e Pintura! Como posso ajudar? Você pode enviar fotos do veículo e descrever os danos para um orçamento.'
-    } else if (lastUserMsg.includes('pintura') || lastUserMsg.includes('funilaria') || lastUserMsg.includes('polimento')) {
-      fallback = 'Trabalhamos com funilaria, pintura automotiva, polimento e recuperação de veículos sinistrados. Para avaliar seu caso, envie fotos do veículo e uma descrição dos danos.'
+      fallback = 'Funcionamos de segunda a sexta, das 8h às 18h ⏰ Aos sábados das 8h às 12h. Pra confirmar ou agendar, chama no WhatsApp (21) 97708-6841! 👊'
+
+    // Contato / WhatsApp / telefone / e-mail
+    } else if (lastUserMsg.includes('whatsapp') || lastUserMsg.includes('telefone') || lastUserMsg.includes('contato') || lastUserMsg.includes('email') || lastUserMsg.includes('e-mail')) {
+      fallback = 'Pode nos chamar no WhatsApp: (21) 97708-6841 📱 ou pelo e-mail: celio_e_v@hotmail.com 📧 Estamos à disposição, chefe! 👊'
+
+    // Saudações
+    } else if (lastUserMsg.includes('olá') || lastUserMsg.includes('ola') || lastUserMsg.includes('bom dia') || lastUserMsg.includes('boa tarde') || lastUserMsg.includes('boa noite') || lastUserMsg.includes('oi')) {
+      fallback = 'Olá, chefe! 👊 Bem-vindo à Cel-Car — Funilaria e Pintura! 🚗 Como posso ajudar? Pode pedir orçamento, tirar dúvidas sobre nossos serviços, ou mandar foto do carro pra avaliação!'
+
+    // Pintura
+    } else if (lastUserMsg.includes('pintura') || lastUserMsg.includes('pintar')) {
+      fallback = 'Aí sim! 🎨 A Cel-Car faz pintura completa ou parcial (só uma peça). Trabalhamos com cores sólidas, metálicas, perolizadas e efeito (vermelho cintilante, preto profundo, azul elétrico e muito mais). Manda foto do carro que a gente te orienta! 🚗'
+
+    // Funilaria
+    } else if (lastUserMsg.includes('funilaria') || lastUserMsg.includes('funileiro')) {
+      fallback = 'Funilaria é com a gente mesmo! 🔧 Fazemos reparo de amassados, troca de peças (para-choques, portas, capô), tratamento de ferrugem e endireitamento de chassis. Manda foto do dano que avaliamos! 👊'
+
+    // Polimento
+    } else if (lastUserMsg.includes('polimento') || lastUserMsg.includes('polir')) {
+      fallback = 'Polimento técnico na área! ✨ Removemos riscos, swirls e revitalizamos a cor original do seu carro. Também fazemos polimento de faróis (restaura transparência). Manda foto que te orçamos! 🚗'
+
+    // Sinistro / seguro
+    } else if (lastUserMsg.includes('sinistro') || lastUserMsg.includes('seguro') || lastUserMsg.includes('batida') || lastUserMsg.includes('acidente')) {
+      fallback = 'Trabalhamos com recuperação de veículos sinistrados, sim! 🚗💨 Fazemos a avaliação completa, funilaria, pintura e acabamento. Também atendemos seguro. Chama no WhatsApp (21) 97708-6841 pra entender seu caso! 📋'
+
+    // Ferrugem
+    } else if (lastUserMsg.includes('ferrugem') || lastUserMsg.includes('enferruj')) {
+      fallback = 'Ferrugem é sério! 😤 Fazemos tratamento anti-ferrugem completo: remoção, tratamento químico, fundo anticorrosivo e pintura. Manda foto de onde tá ferrugem que a gente cuida! 🔧'
+
+    // Serviços gerais / o que fazem
+    } else if (lastUserMsg.includes('serviço') || lastUserMsg.includes('servico') || lastUserMsg.includes('o que vocês') || lastUserMsg.includes('o que fazem') || lastUserMsg.includes('oferecem')) {
+      fallback = 'Olha, a Cel-Car é completa! 🔧 Fazemos:\n• Funilaria (amassados, troca de peças, ferrugem)\n• Pintura automotiva (todas as cores e acabamentos)\n• Polimento técnico (remove riscos, revitaliza)\n• Recuperação de veículos sinistrados\n• Tratamento anti-ferrugem\n\nManda foto do que precisa que a gente cuida! 👊'
+
+    // Para-choque
+    } else if (lastUserMsg.includes('para-choque') || lastUserMsg.includes('parachoque') || lastUserMsg.includes('para choque')) {
+      fallback = 'Para-choque é nossa especialidade! 🔧 Troca, reparo de amassados, pintura... fazemos tudo. Pode ser para-choque dianteiro ou traseiro. Manda foto que te orçamos! 🚗'
+
+    // Kombi / veículo específico
+    } else if (lastUserMsg.includes('kombi') || lastUserMsg.includes('carro') || lastUserMsg.includes('veículo') || lastUserMsg.includes('veiculo')) {
+      fallback = 'Boa! 🚗 Qualquer veículo a gente cuida — Kombi, carro popular, SUV, moto... Manda foto do que tá precisando (pintura, funilaria, polimento) que a gente avalia e te passa o orçamento! 👊'
+
+    // App / link
+    } else if (lastUserMsg.includes('app') || lastUserMsg.includes('site') || lastUserMsg.includes('link')) {
+      fallback = 'Nosso app de orçamento online: https://cel-car.vercel.app/ 🌍 Lá você pode simular o orçamento do seu carro, escolher peças e cores, e nos enviar pelo WhatsApp! 👊'
+
+    // Agradecimento
+    } else if (lastUserMsg.includes('obrigado') || lastUserMsg.includes('obrigada') || lastUserMsg.includes('valeu') || lastUserMsg.includes('vlw')) {
+      fallback = 'Disponha, chefe! 🤝 Qualquer coisa, chama no WhatsApp (21) 97708-6841 ou aqui mesmo. Tamo junto! 👊🚗'
+
+    // Resposta padrão
     } else {
-      fallback = 'Recebi sua mensagem! Para um atendimento mais ágil, envie fotos do veículo e uma descrição dos danos. Ou chame um atendente humano no WhatsApp: (21) 97708-6841.'
+      fallback = 'Recebi sua mensagem! 😊 Pra um atendimento mais ágil, manda foto do veículo e uma descrição do que precisa. Ou chama o Célio no WhatsApp: (21) 97708-6841. Tamo junto! 👊'
     }
 
     return NextResponse.json({
