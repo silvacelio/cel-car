@@ -185,9 +185,17 @@ export async function POST(req: NextRequest) {
     } else if (lastUserMsg.includes('endereço') || lastUserMsg.includes('endereco') || lastUserMsg.includes('onde fica') || lastUserMsg.includes('localização') || lastUserMsg.includes('localizacao')) {
       fallback = 'Estamos na Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ 📍 CEP 20760-245. Te esperamos de seg-sex (8h-18h) e sábado (8h-12h). Vem nos visitar! 🚗'
 
-    // Horário
-    } else if (lastUserMsg.includes('horário') || lastUserMsg.includes('horario') || lastUserMsg.includes('aberto') || lastUserMsg.includes('funcionamento')) {
-      fallback = 'Funcionamos de segunda a sexta, das 8h às 18h ⏰ Aos sábados das 8h às 12h. Pra confirmar ou agendar, chama no WhatsApp (21) 97708-6841! 👊'
+    // Sábado específico
+    } else if (lastUserMsg.includes('sábado') || lastUserMsg.includes('sabado')) {
+      fallback = 'Boa, chefe! ⏰ Aos sábados funcionamos só meio período: das 8h às 12h. Agende seu horário pelo WhatsApp (21) 97708-6841. Segunda a sexta é horário cheio (8h-18h)! 👊'
+
+    // Domingo
+    } else if (lastUserMsg.includes('domingo') || lastUserMsg.includes('domingos')) {
+      fallback = 'Aos domingos estamos fechados, chefe! 😅 Funcionamos seg-sex (8h-18h) e sábado (8h-12h). Voltou segunda-feira ou chama no WhatsApp (21) 97708-6841! 👊'
+
+    // Horário geral
+    } else if (lastUserMsg.includes('horário') || lastUserMsg.includes('horario') || lastUserMsg.includes('aberto') || lastUserMsg.includes('funcionamento') || lastUserMsg.includes('que horas')) {
+      fallback = 'Funcionamos assim, chefe! ⏰\n• Segunda a sexta: 8h às 18h\n• Sábado: 8h às 12h (só meio período)\n• Domingo: fechado\n\nPra agendar, chama no WhatsApp (21) 97708-6841! 👊'
 
     // Contato / WhatsApp / telefone / e-mail
     } else if (lastUserMsg.includes('whatsapp') || lastUserMsg.includes('telefone') || lastUserMsg.includes('contato') || lastUserMsg.includes('email') || lastUserMsg.includes('e-mail')) {
@@ -232,6 +240,26 @@ export async function POST(req: NextRequest) {
     // App / link
     } else if (lastUserMsg.includes('app') || lastUserMsg.includes('site') || lastUserMsg.includes('link')) {
       fallback = 'Nosso app de orçamento online: https://cel-car.vercel.app/ 🌍 Lá você pode simular o orçamento do seu carro, escolher peças e cores, e nos enviar pelo WhatsApp! 👊'
+
+    // Forma de pagamento
+    } else if (lastUserMsg.includes('pagamento') || lastUserMsg.includes('pagar') || lastUserMsg.includes('cartão') || lastUserMsg.includes('cartao') || lastUserMsg.includes('pix') || lastUserMsg.includes('dinheiro') || lastUserMsg.includes('parcel')) {
+      fallback = 'Aceitamos várias formas de pagamento, chefe! 💳\n• PIX (com desconto à vista!)\n• Dinheiro\n• Cartão de débito\n• Cartão de crédito (parcelamos)\n\nChama no WhatsApp (21) 97708-6841 pra detalhar! 👊'
+
+    // Prazo de entrega
+    } else if (lastUserMsg.includes('prazo') || lastUserMsg.includes('entrega') || lastUserMsg.includes('demora') || lastUserMsg.includes('quanto tempo') || lastUserMsg.includes('quando fica') || lastUserMsg.includes('quando tá pronto')) {
+      fallback = 'O prazo varia conforme o serviço, chefe! ⏰\n• Polimento: 1-2 dias\n• Pintura parcial: 2-3 dias\n• Pintura completa: 5-7 dias\n• Recuperação de sinistrado: 15-30 dias\n\nManda foto do carro que te passo um prazo certinho! 👊'
+
+    // Quando fica pronto / carro pronto
+    } else if (lastUserMsg.includes('carro pronto') || lastUserMsg.includes('tá pronto') || lastUserMsg.includes('esta pronto') || lastUserMsg.includes('ja terminou')) {
+      fallback = 'Quer saber do seu carro? 🚗 Chama no WhatsApp (21) 97708-6841 que te passo o status atualizado do serviço! 👊'
+
+    // Garantia
+    } else if (lastUserMsg.includes('garantia') || lastUserMsg.includes('garante')) {
+      fallback = 'Sim, chefe! 🔒 Toda pintura tem 3 meses de garantia. Funilaria e serviços estruturais têm garantia conforme o serviço. Chama no WhatsApp (21) 97708-6841 pra detalhar! 👊'
+
+    // Acompanhar / status
+    } else if (lastUserMsg.includes('acompanhar') || lastUserMsg.includes('status') || lastUserMsg.includes('andamento')) {
+      fallback = 'Pra acompanhar o status do seu serviço, chama no WhatsApp (21) 97708-6841 📱 que te passo a atualização! 👊'
 
     // Agradecimento
     } else if (lastUserMsg.includes('obrigado') || lastUserMsg.includes('obrigada') || lastUserMsg.includes('valeu') || lastUserMsg.includes('vlw')) {
