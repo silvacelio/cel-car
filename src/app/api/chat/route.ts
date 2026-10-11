@@ -159,7 +159,44 @@ Contei tudo? Manda foto do que precisa que a gente cuida! 👊"
 **Cliente:** Apenas procurando informações
 **Resposta:** "Posso te ajudar! 😊 Poderia me explicar melhor o que você precisa em relação ao seu veículo? Se quiser orçamento, é só me passar seu nome, modelo do carro e fotos do dano! 👊"
 
-Lembre-se: você é a voz da Cel-Car. Cada resposta deve mostrar paixão pelo que faz e vontade de ajudar o cliente. Seu objetivo final é sempre converter o atendimento em orçamento ou agendamento. Use emojis com moderação pra dar vida, mas sem exagerar.`
+## 🎯 TRATANDO MENSAGENS CURTAS E GÍRIAS:
+
+Clientes costumam mandar mensagens curtas tipo "blz", "ok", "obrigado", "valeu", "volto depois", "depois vou lá", etc. Responda de forma natural e continue conduzindo o atendimento:
+
+**Cliente:** "blz" / "beleza" / "tranquilo"
+**Resposta:** "Blz, chefe! 👊 Tô aqui pra ajudar. Quer começar um orçamento? Pode me passar seu nome, modelo do carro e foto do dano que a gente cuida! 🚗"
+
+**Cliente:** "ok" / "beleza então" / "tá bom"
+**Resposta:** "Show, chefe! 👊 Qualquer coisa é só chamar. Se quiser adiantar, manda foto do carro que a gente te orçama! 🚗"
+
+**Cliente:** "obrigado" / "obrigada" / "valeu" / "vlw" / "valeu demais"
+**Resposta:** "Disponha, chefe! 🤝 Se precisar de orçamento ou tirar dúvida, tamo aqui. Chama no WhatsApp (21) 97708-6841 se preferir. Tamo junto! 👊🚗"
+
+**Cliente:** "volto depois" / "depois eu volto" / "mais tarde" / "depois vou lá"
+**Resposta:** "Tranquilo, chefe! 🤝 Quando voltar, é só mandar foto do carro e seus dados que a gente cuida do orçamento. Te espero! 🚗"
+
+**Cliente:** "depois" / "amanhã" / "hoje à tarde" / "segunda" (só indicando quando vai voltar)
+**Resposta:** "Perfeito, chefe! 👊 Te espero quando puder. Pode mandar foto do dano antes também, se quiser adiantar. Valeu! 🚗"
+
+**Cliente:** "tchau" / "falou" / "até mais" / "até logo"
+**Resposta:** "Valeu, chefe! 🤝 Até mais! Tamo aqui sempre que precisar. Bom dia/tarde/noite pra você! 👊🚗"
+
+**Cliente:** "sim" / "isso" / "exato" / "correto" (confirmando algo)
+**Resposta:** "Beleza, chefe! 👊 Me passa seu nome, telefone, modelo do veículo e foto do dano que a gente tá pronto pra te ajudar! 🚗"
+
+**Cliente:** "não" / "não precisa" / "deixa pra lá"
+**Resposta:** "Sem problema, chefe! 🤝 Qualquer coisa, tamo aqui. Bom dia/tarde/noite! 👊"
+
+**Cliente:** "kkkk" / "haha" / "kkk" / "rs" (risadas)
+**Resposta:** "kkk tranquilo, chefe! 😄 Tô aqui pra ajudar quando precisar. Quer adiantar um orçamento? Manda foto do carro! 🚗"
+
+**Cliente:** "?" (só interrogação) ou mensagem muito curta sem contexto
+**Resposta:** "Oi, chefe! 👊 Tudo certo? Como posso ajudar? Pode pedir orçamento, mandar foto do carro, ou tirar dúvida sobre serviços. Tamo aqui! 🚗"
+
+**Cliente:** "hum" / "aham" / "entendi" / "sei"
+**Resposta:** "Isso aí, chefe! 👊 Quer que eu te ajude com algo? Se for orçamento, me passa seu nome, modelo do veículo e foto do dano que a gente cuida! 🚗"
+
+Lembre-se: você é a voz da Cel-Car. Cada resposta deve mostrar paixão pelo que faz e vontade de ajudar o cliente. Seu objetivo final é sempre converter o atendimento em orçamento ou agendamento. Use emojis com moderação pra dar vida, mas sem exagerar. NUNCA deixe o cliente sem resposta adequada — sempre conduza a conversa de volta pra um próximo passo (orçamento, foto, agendamento, WhatsApp).`
 
 export async function POST(req: NextRequest) {
   try {
@@ -323,8 +360,40 @@ export async function POST(req: NextRequest) {
       fallback = 'Pra acompanhar o status do seu serviço, chama no WhatsApp (21) 97708-6841 📱 que te passo a atualização! 👊'
 
     // Agradecimento
-    } else if (lastUserMsg.includes('obrigado') || lastUserMsg.includes('obrigada') || lastUserMsg.includes('valeu') || lastUserMsg.includes('vlw')) {
-      fallback = 'Disponha, chefe! 🤝 Qualquer coisa, chama no WhatsApp (21) 97708-6841 ou aqui mesmo. Tamo junto! 👊🚗'
+    } else if (lastUserMsg.includes('obrigado') || lastUserMsg.includes('obrigada') || lastUserMsg.includes('valeu') || lastUserMsg.includes('vlw') || lastUserMsg.includes('valeu demais') || lastUserMsg.includes('agradeç')) {
+      fallback = 'Disponha, chefe! 🤝 Se precisar de orçamento ou tirar dúvida, tamo aqui. Chama no WhatsApp (21) 97708-6841 se preferir. Tamo junto! 👊🚗'
+
+    // Mensagens curtas de OK / concordância
+    } else if (lastUserMsg === 'blz' || lastUserMsg === 'beleza' || lastUserMsg === 'tranquilo' || lastUserMsg === 'ok' || lastUserMsg === 'ok!' || lastUserMsg === 'beleza então' || lastUserMsg === 'tá bom' || lastUserMsg === 'ta bom' || lastUserMsg === 'combinado') {
+      fallback = 'Blz, chefe! 👊 Tô aqui pra ajudar. Quer começar um orçamento? Pode me passar seu nome, modelo do carro e foto do dano que a gente cuida! 🚗'
+
+    // Volto depois / mais tarde / amanhã
+    } else if (lastUserMsg.includes('volto depois') || lastUserMsg.includes('depois eu volto') || lastUserMsg.includes('mais tarde') || lastUserMsg.includes('depois vou') || lastUserMsg.includes('amanhã volto') || lastUserMsg.includes('amanha volto') || lastUserMsg.includes('depois')) {
+      fallback = 'Tranquilo, chefe! 🤝 Quando voltar, é só mandar foto do carro e seus dados (nome, telefone, modelo, placa) que a gente cuida do orçamento. Te espero! 🚗'
+
+    // Tchau / despedida
+    } else if (lastUserMsg.includes('tchau') || lastUserMsg.includes('falou') || lastUserMsg.includes('até mais') || lastUserMsg.includes('ate mais') || lastUserMsg.includes('até logo') || lastUserMsg.includes('ate logo') || lastUserMsg.includes('boa noite') && lastUserMsg.length < 20) {
+      fallback = 'Valeu, chefe! 🤝 Até mais! Tamo aqui sempre que precisar. Se quiser adiantar um orçamento depois, manda foto do carro! 👊🚗'
+
+    // Sim / confirmacao
+    } else if (lastUserMsg === 'sim' || lastUserMsg === 'isso' || lastUserMsg === 'exato' || lastUserMsg === 'correto' || lastUserMsg === 'isso mesmo' || lastUserMsg === 'exatamente' || lastUserMsg === 'pode ser') {
+      fallback = 'Beleza, chefe! 👊 Me passa seu nome, telefone, modelo do veículo e foto do dano que a gente tá pronto pra te ajudar! 🚗'
+
+    // Não / negação
+    } else if (lastUserMsg === 'não' || lastUserMsg === 'nao' || lastUserMsg.includes('não precisa') || lastUserMsg.includes('nao precisa') || lastUserMsg.includes('deixa pra lá') || lastUserMsg.includes('deixa pra la')) {
+      fallback = 'Sem problema, chefe! 🤝 Qualquer coisa, tamo aqui. Se mudar de ideia, é só mandar foto do carro que a gente cuida! 👊'
+
+    // Risadas
+    } else if (lastUserMsg.includes('kkkk') || lastUserMsg.includes('kkk') || lastUserMsg.includes('haha') || lastUserMsg.includes('rs') || lastUserMsg.includes('kk')) {
+      fallback = 'kkk tranquilo, chefe! 😄 Tô aqui pra ajudar quando precisar. Quer adiantar um orçamento? Manda foto do carro que a gente cuida! 🚗'
+
+    // Hum / entendi / sei
+    } else if (lastUserMsg === 'hum' || lastUserMsg === 'aham' || lastUserMsg === 'entendi' || lastUserMsg === 'sei' || lastUserMsg === 'aham') {
+      fallback = 'Isso aí, chefe! 👊 Quer que eu te ajude com algo? Se for orçamento, me passa seu nome, modelo do veículo e foto do dano que a gente cuida! 🚗'
+
+    // Apenas interrogação ou mensagem muito curta sem contexto
+    } else if (lastUserMsg === '?' || lastUserMsg === '??' || lastUserMsg === '???' || lastUserMsg.length < 4) {
+      fallback = 'Oi, chefe! 👊 Tudo certo? Como posso ajudar? Pode pedir orçamento, mandar foto do carro, ou tirar dúvida sobre serviços. Tamo aqui! 🚗'
 
     // Resposta padrão
     } else {
