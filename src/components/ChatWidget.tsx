@@ -28,7 +28,7 @@ export function ChatWidget() {
   const [messages, setMessages] = React.useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Olá! Bem-vindo à Cel-Car — Funilaria e Pintura! 🚗\n\nComo posso ajudar? Você pode:\n• Pedir um orçamento\n• Enviar fotos do veículo 📸 (clipe ao lado)\n• Tirar dúvidas sobre nossos serviços',
+      content: 'Olá! Seja bem-vindo à Cel-Car Funilaria e Pintura Automotiva. 🚗\n\nComo podemos ajudar?\n• Orçamento\n• Funilaria\n• Pintura\n• Polimento\n• Cristalização\n• Agendamento\n\nTamo aqui pra te atender! 👊',
     },
   ])
   const [input, setInput] = React.useState('')
