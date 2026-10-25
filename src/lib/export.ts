@@ -89,6 +89,7 @@ export function buildWhatsAppMessage(budget: Budget): string {
   lines.push(`${COMPANY.nome}`)
   lines.push(`CNPJ: ${COMPANY.cnpj} | Tel: ${COMPANY.telefone}`)
   lines.push(`${COMPANY.endereco} — ${COMPANY.cidade}/${COMPANY.estado} — CEP ${COMPANY.cep}`)
+  lines.push(`Como chegar: ${COMPANY.mapsLink}`)
   lines.push('')
   lines.push(`*Cliente:* ${budget.cliente.nome || '-'}`)
   if (budget.cliente.telefone) lines.push(`*Telefone:* ${budget.cliente.telefone}`)
@@ -205,6 +206,10 @@ export function exportPDF(budget: Budget) {
   doc.setFontSize(9)
   doc.text(`CNPJ: ${COMPANY.cnpj}  |  Tel: ${COMPANY.telefone}  |  ${COMPANY.email}`, budget.logo ? margin + 24 : margin, 18)
   doc.text(`${COMPANY.endereco} — ${COMPANY.cidade}/${COMPANY.estado} — CEP ${COMPANY.cep}`, budget.logo ? margin + 24 : margin, 23)
+  // Link do Google Maps (text com cor azul)
+  doc.setTextColor(30, 64, 175)
+  doc.textWithLink('Ver no Google Maps', budget.logo ? margin + 24 : margin, 27.5, { url: COMPANY.mapsLink })
+  doc.setTextColor(0, 0, 0)
 
   y = 36
   doc.setTextColor(0, 0, 0)
@@ -540,6 +545,7 @@ export function exportWord(budget: Budget) {
       <div style="font-size:18pt;font-weight:bold">${COMPANY.nome}</div>
       <div style="font-size:9pt;margin-top:4px">CNPJ: ${COMPANY.cnpj} &nbsp;|&nbsp; Tel: ${COMPANY.telefone} &nbsp;|&nbsp; ${COMPANY.email}</div>
       <div style="font-size:9pt">${COMPANY.endereco} — ${COMPANY.cidade}/${COMPANY.estado} — CEP ${COMPANY.cep}</div>
+      <div style="font-size:9pt;margin-top:2px"><a href="${COMPANY.mapsLink}" style="color:#1E40AF;text-decoration:none">Ver no Google Maps</a></div>
     </div>
   </div>
 
@@ -718,6 +724,7 @@ export function printBudget(budget: Budget) {
         <h1>${COMPANY.nome}</h1>
         <p>CNPJ: ${COMPANY.cnpj} &nbsp;|&nbsp; Tel: ${COMPANY.telefone} &nbsp;|&nbsp; ${COMPANY.email}</p>
         <p>${COMPANY.endereco} — ${COMPANY.cidade}/${COMPANY.estado} — CEP ${COMPANY.cep}</p>
+        <p style="margin-top:2px"><a href="${COMPANY.mapsLink}" style="color:#1E40AF;text-decoration:none" target="_blank">Ver no Google Maps</a></p>
       </div>
     </div>
     <h2>ORÇAMENTO ${budget.numero}</h2>

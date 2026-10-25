@@ -30,6 +30,7 @@ Se o cliente perguntar se é um robô ou atendimento automático, responda APENA
 - **Telefones/WhatsApp:** (21) 97708-6841 ou (21) 99469-6822 — chamar "Célio"
 - **E-mail:** celio_e_v@hotmail.com
 - **Endereço:** Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ — CEP 20760-245
+- **Como chegar (Google Maps):** https://maps.app.goo.gl/r87s1oRr9Wx9cWig9
 - **Horário:** Segunda a sexta, das 8h30 às 17h30. Sábado e domingo: fechado.
 - **Retorno de orçamentos:** em até 24 horas úteis
 - **Formas de pagamento:** PIX (com desconto à vista), dinheiro, cartão de débito, cartão de crédito (parcelado)
@@ -334,7 +335,7 @@ export async function POST(req: NextRequest) {
 
     // Endereço / localização
     } else if (lastUserMsg.includes('endereço') || lastUserMsg.includes('endereco') || lastUserMsg.includes('onde fica') || lastUserMsg.includes('localização') || lastUserMsg.includes('localizacao')) {
-      fallback = 'Estamos na Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ 📍 CEP 20760-245. Funcionamos seg-sex (8h30 às 17h30). Vem nos visitar! 🚗'
+      fallback = 'Estamos na Rua José dos Reis, 2047 — Inhaúma, Rio de Janeiro/RJ 📍 CEP 20760-245.\n\n🗺️ Como chegar: https://maps.app.goo.gl/r87s1oRr9Wx9cWig9\n\nFuncionamos seg-sex (8h30 às 17h30). Vem nos visitar! 🚗'
 
     // Sábado específico
     } else if (lastUserMsg.includes('sábado') || lastUserMsg.includes('sabado')) {

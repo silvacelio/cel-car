@@ -5,12 +5,16 @@ export const COMPANY = {
   cnpjRaw: '35497152000126',
   telefone: '(21) 97708-6841',
   telefoneRaw: '21977086841',
+  telefone2: '(21) 99469-6822',
+  telefone2Raw: '21994696822',
   email: 'celio_e-v@hotmail.com',
   cep: '20760-245',
   endereco: 'Rua José dos Reis, 2047 — Inhaúma',
   cidade: 'Rio de Janeiro',
   estado: 'RJ',
   whatsappLink: 'https://wa.me/5521977086841',
+  mapsLink: 'https://maps.app.goo.gl/r87s1oRr9Wx9cWig9',
+  horario: 'Segunda a sexta, das 8h30 às 17h30. Sábado e domingo: fechado.',
 } as const
 
 export function formatBRL(value: number): string {

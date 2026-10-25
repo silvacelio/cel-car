@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { useTheme } from 'next-themes'
-import { Moon, Sun, Car, Plus, Trash2, Sparkles, Send, Mail, FileText, FileType2, Save, Printer, History, X, Trash, Eraser, AlertTriangle, ShieldCheck, Share2, Copy, QrCode, RotateCcw, Package, Wrench, Search, ExternalLink, Camera, ImageIcon } from 'lucide-react'
+import { Moon, Sun, Car, Plus, Trash2, Sparkles, Send, Mail, FileText, FileType2, Save, Printer, History, X, Trash, Eraser, AlertTriangle, ShieldCheck, Share2, Copy, QrCode, RotateCcw, Package, Wrench, Search, ExternalLink, Camera, ImageIcon, MapPin } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -1195,6 +1195,16 @@ export default function Home() {
               <span>{COMPANY.email}</span>
               <span>•</span>
               <span>{COMPANY.endereco} — CEP {COMPANY.cep}</span>
+              <span>•</span>
+              <a
+                href={COMPANY.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-primary hover:underline"
+                title="Ver no Google Maps"
+              >
+                <MapPin className="h-3 w-3" /> Como chegar
+              </a>
             </div>
           </div>
         </div>
