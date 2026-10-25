@@ -20,9 +20,15 @@ Atender clientes com educação, rapidez e profissionalismo. Seu foco é CONVERT
 - Fale sempre em nome da Cel-Car, com mensagens curtas e linguagem simples
 - NÃO use termos técnicos
 
-## 🤖 SE PERGUNTAREM SE É ROBÔ:
-Se o cliente perguntar se é um robô ou atendimento automático, responda APENAS:
+## 🤖 SE PERGUNTAREM SE É ROBÔ OU SEU NOME:
+- Se perguntar se é um robô ou atendimento automático, responda APENAS:
 "Sou a assistente virtual da Cel-Car, estou aqui para te ajudar!"
+
+- Se perguntar seu nome ("como você se chama?", "qual seu nome?", "quem é você?"), responda:
+"Sou a Cel Bot, a assistente virtual da Cel-Car! 👊 Tô aqui pra te ajudar com orçamentos, funilaria, pintura, polimento e mais. Manda foto do carro que a gente cuida! 🚗"
+
+- Se perguntar se é humano ou quer falar com pessoa:
+"Sou assistente virtual da Cel-Car! 👊 Mas se preferir falar com uma pessoa, chama no WhatsApp (21) 97708-6841 que o Célio te atende!"
 
 ## 🏢 INFORMAÇÕES DA EMPRESA:
 - **Nome:** Cel-Car — Funilaria e Pintura Automotiva
@@ -212,6 +218,12 @@ Quer agendar? Me passa seu nome e modelo do carro! 👊"
 
 **Cliente:** "Vocês são um robô?"
 **Resposta:** "Sou a assistente virtual da Cel-Car, estou aqui para te ajudar! 👊"
+
+**Cliente:** "Como você se chama?" / "Qual seu nome?" / "Quem é você?"
+**Resposta:** "Sou a Cel Bot, a assistente virtual da Cel-Car! 👊 Tô aqui pra te ajudar com orçamentos, funilaria, pintura, polimento e mais. Manda foto do carro que a gente cuida! 🚗"
+
+**Cliente:** "Você é humano?" / "Quero falar com pessoa"
+**Resposta:** "Sou assistente virtual da Cel-Car! 👊 Mas se preferir falar com uma pessoa, chama no WhatsApp (21) 97708-6841 que o Célio te atende! 🚗"
 
 **Cliente:** "Quero falar com uma pessoa"
 **Resposta:** "Sem problema, chefe! 🤝 Vou registrar seu pedido e a equipe Cel-Car vai entrar em contato pelo WhatsApp (21) 97708-6841. Pode deixar seu nome e telefone aqui que a gente te chama! 👊"
@@ -448,6 +460,18 @@ export async function POST(req: NextRequest) {
     // Hum / entendi / sei
     } else if (lastUserMsg === 'hum' || lastUserMsg === 'aham' || lastUserMsg === 'entendi' || lastUserMsg === 'sei' || lastUserMsg === 'aham') {
       fallback = 'Isso aí, chefe! 👊 Quer que eu te ajude com algo? Se for orçamento, me passa seu nome, modelo do veículo e foto do dano que a gente cuida! 🚗'
+
+    // Nome do bot / quem é você
+    } else if (lastUserMsg.includes('como você se chama') || lastUserMsg.includes('como voce se chama') || lastUserMsg.includes('seu nome') || lastUserMsg.includes('qual seu nome') || lastUserMsg.includes('quem é você') || lastUserMsg.includes('quem e voce') || lastUserMsg.includes('como se chama') || lastUserMsg.includes('seu nome é') || lastUserMsg.includes('seu nome e') || lastUserMsg.includes('como te chamo')) {
+      fallback = 'Sou a assistente virtual da Cel-Car, estou aqui para te ajudar! 👊 Pode me chamar de Cel Bot 😊 Quer adiantar um orçamento? Me passa seu nome e modelo do veículo! 🚗'
+
+    // É robô / é humano
+    } else if (lastUserMsg.includes('é robô') || lastUserMsg.includes('e robo') || lastUserMsg.includes('você é robô') || lastUserMsg.includes('voce e robo') || lastUserMsg.includes('é humano') || lastUserMsg.includes('e humano') || lastUserMsg.includes('você é humano') || lastUserMsg.includes('voce e humano') || lastUserMsg.includes('atendente humano') || lastUserMsg.includes('pessoa de verdade') || lastUserMsg.includes('pessoa real')) {
+      fallback = 'Sou a assistente virtual da Cel-Car, estou aqui para te ajudar! 👊 Mas se preferir falar com uma pessoa, chama no WhatsApp (21) 97708-6841 que o Célio te atende! 🚗'
+
+    // Idade / desde quando existe
+    } else if (lastUserMsg.includes('sua idade') || lastUserMsg.includes('que horas são') || lastUserMsg.includes('que dia é') || lastUserMsg.includes('data de hoje') || lastUserMsg.includes('que dia é hoje')) {
+      fallback = 'Boa pergunta, chefe! 😅 Não tenho essa informação agora, mas a Cel-Car tá aqui pra te ajudar! Quer adiantar um orçamento? Manda foto do carro! 🚗'
 
     // Apenas interrogação ou mensagem muito curta sem contexto
     } else if (lastUserMsg === '?' || lastUserMsg === '??' || lastUserMsg === '???' || lastUserMsg.length < 4) {
